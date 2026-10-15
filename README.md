@@ -50,9 +50,9 @@ We investigate three quantities:
 
 - **Longitudinal magnetization**
 
-  $$
-  M_z(t)=\frac{1}{N}\sum_i\langle Z_i\rangle
-  $$
+$$
+M_z(t)=\frac{1}{N}\sum_i\langle Z_i\rangle
+$$
 
 - **Transverse magnetization**
 
