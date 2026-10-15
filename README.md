@@ -12,7 +12,7 @@
 
 This project investigates the time evolution of an eight-spin transverse-field Ising model (TFIM) using Qiskit. We compare first-order Lie–Trotter and second-order Suzuki–Trotter product formulas against an exact classical reference computed using `scipy.linalg.expm`.
 
-The system begins in the initial state \(|00000000\rangle\) and evolves until \(t=2\), with coupling and transverse-field strengths \(J=h=1\). We study the longitudinal and transverse magnetizations, along with equal-time spin–spin correlations.
+The system begins in the initial state $|00000000\rangle$ and evolves until $t=2$, with coupling and transverse-field strengths $J=h=1$. We study the longitudinal and transverse magnetizations, along with equal-time spin–spin correlations.
 
 Our results show that the most efficient product formula depends on the observable. Suzuki–Trotter achieves the chosen accuracy for transverse magnetization with substantially fewer two-qubit gates, while Lie–Trotter uses fewer gates for longitudinal magnetization in the tested configurations.
 
@@ -22,18 +22,18 @@ Our results show that the most efficient product formula depends on the observab
 
 We simulate an open chain of eight spins governed by the Hamiltonian
 
-\[
+$$
 H=-J\sum_{i=0}^{6}Z_iZ_{i+1}
 -h\sum_{i=0}^{7}X_i,
-\]
+$$
 
-where \(J=h=1\), and \(X_i\) and \(Z_i\) denote Pauli operators acting on spin \(i\).
+where $J=h=1$, and $X_i$ and $Z_i$ denote Pauli operators acting on spin $i$.
 
 The initial state is
 
-\[
+$$
 |\psi(0)\rangle=|00000000\rangle.
-\]
+$$
 
 ### Quantum Simulation
 
@@ -49,24 +49,28 @@ An exact reference is calculated using `scipy.linalg.expm`, allowing us to quant
 We investigate three quantities:
 
 - **Longitudinal magnetization**
-  \[
+
+  $$
   M_z(t)=\frac{1}{N}\sum_i\langle Z_i\rangle
-  \]
+  $$
 
 - **Transverse magnetization**
-  \[
+
+  $$
   M_x(t)=\frac{1}{N}\sum_i\langle X_i\rangle
-  \]
+  $$
 
 - **Spin–spin correlations**
-  \[
+
+  $$
   \langle Z_0Z_r\rangle
-  \]
-  evaluated at \(t=2\) for different distances \(r\).
+  $$
+
+  evaluated at $t=2$ for different distances $r$.
 
 ### Accuracy and Circuit Cost
 
-We use a maximum absolute magnetization error below \(0.01\) over the interval \([0,2]\) as the target criterion. Candidate time-step sizes are tested, and the maximum error is evaluated over the sampled evolution times, including the final time.
+We use a maximum absolute magnetization error below $0.01$ over the interval $[0,2]$ as the target criterion. Candidate time-step sizes are tested, and the maximum error is evaluated over the sampled evolution times, including the final time.
 
 To compare circuit costs, circuits are transpiled into the `rz`, `sx`, `x`, and `cx` basis at optimization level 1. The number of CNOT gates is used as a hardware-relevant measure of circuit cost.
 
@@ -74,12 +78,12 @@ To compare circuit costs, circuits are transpiled into the `rz`, `sx`, `x`, and 
 
 The following table summarizes the selected configurations from the tested time-step sweep.
 
-| Method | Observable | Time Step \(\Delta t\) | Steps | Maximum Error | CNOT Gates |
+| Method | Observable | Time Step $\Delta t$ | Steps | Maximum Error | CNOT Gates |
 |---|---|---:|---:|---:|---:|
-| Lie–Trotter | \(M_z\) | 0.1667 | 12 | 0.00985 | 168 |
-| Lie–Trotter | \(M_x\) | 0.0125 | 160 | 0.00819 | 2240 |
-| Suzuki–Trotter | \(M_z\) | 0.1667 | 12 | 0.00985 | 314 |
-| Suzuki–Trotter | \(M_x\) | 0.1667 | 12 | 0.00750 | 314 |
+| Lie–Trotter | $M_z$ | 0.1667 | 12 | 0.00985 | 168 |
+| Lie–Trotter | $M_x$ | 0.0125 | 160 | 0.00819 | 2240 |
+| Suzuki–Trotter | $M_z$ | 0.1667 | 12 | 0.00985 | 314 |
+| Suzuki–Trotter | $M_x$ | 0.1667 | 12 | 0.00750 | 314 |
 
 *These values reflect the tested configurations and transpilation settings, rather than a guaranteed global optimum.*
 
@@ -89,18 +93,18 @@ The following table summarizes the selected configurations from the tested time-
 
 The comparison reveals that no single product formula is automatically the most efficient for every observable.
 
-- **For longitudinal magnetization \(M_z\):** Lie–Trotter requires 168 CNOT gates, compared with 314 for Suzuki–Trotter, at the same tested time step and reported error.
-- **For transverse magnetization \(M_x\):** Suzuki–Trotter reaches the target error using 314 CNOT gates, compared with 2240 for the selected Lie–Trotter configuration.
+- **For longitudinal magnetization $M_z$:** Lie–Trotter requires 168 CNOT gates, compared with 314 for Suzuki–Trotter, at the same tested time step and reported error.
+- **For transverse magnetization $M_x$:** Suzuki–Trotter reaches the target error using 314 CNOT gates, compared with 2240 for the selected Lie–Trotter configuration.
 
 ### Why the observables behave differently
 
-The initial state is an eigenstate of the \(ZZ\) interaction terms. Longitudinal magnetization is also compatible with these interaction terms, which helps explain the similar \(M_z\) errors observed for the two methods at the tested step size.
+The initial state is an eigenstate of the $ZZ$ interaction terms. Longitudinal magnetization is also compatible with these interaction terms, which helps explain the similar $M_z$ errors observed for the two methods at the tested step size.
 
-Transverse magnetization is more sensitive to the dynamics generated by the noncommuting \(X\) and \(ZZ\) terms. In the tested configurations, Suzuki–Trotter captures this evolution accurately with a much larger time step.
+Transverse magnetization is more sensitive to the dynamics generated by the noncommuting $X$ and $ZZ$ terms. In the tested configurations, Suzuki–Trotter captures this evolution accurately with a much larger time step.
 
 ### Correlation analysis
 
-The spin–spin correlation analysis examines how \(\langle Z_0Z_r\rangle\) varies with distance at \(t=2\). This provides a complementary view of the simulated system beyond average magnetization and helps investigate spatial relationships between spins.
+The spin–spin correlation analysis examines how $\langle Z_0Z_r\rangle$ varies with distance at $t=2$. This provides a complementary view of the simulated system beyond average magnetization and helps investigate spatial relationships between spins.
 
 ## 5. Validation
 
