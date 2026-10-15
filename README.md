@@ -3,7 +3,7 @@
 | **Field** | **Details** |
 |---|---|
 | **Team** | byteME |
-| **Members** | Riddhi Singh [riddhi.official777@gmail.com], Dhruwaz Deswal [dhruwazofficial@gmail.com], Srishti Aggarwal [srishti2007aggarwal@gmail.com], Saurabh Yadav [saurabh.ydvconnect@gmail.com] |
+| **Members** | Riddhi Singh (riddhi.official777@gmail.com), Dhruwaz Deswal (dhruwazofficial@gmail.com), Srishti Aggarwal (srishti2007aggarwal@gmail.com), Saurabh Yadav (saurabh.ydvconnect@gmail.com) |
 | **Track** | Track 3 · Quantum Simulation |
 | **Level Reached** | Intermediate (noisy simulator, no real QPU) |
 | **Code Files** | `main.ipynb` (Beginner + helpers), `intermediate.ipynb` (Intermediate) |
