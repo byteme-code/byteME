@@ -101,9 +101,10 @@ $$
 | Order 2 | 1 | 338 | 1710 |
 | Order 2 | 3 | 322 | 1083 |
 
-Plots: exact vs noiseless vs noisy vs mitigated $M_z(t)$ and $M_x(t)$ (intermediate cell 12)- "graph_plots/intermediate/The_M_z(t)_M_x(t)_plot.png"
+Plots: 
+exact vs noiseless vs noisy vs mitigated $M_z(t)$ and $M_x(t)$ (intermediate cell 12)- "graph_plots/intermediate/The_M_z(t)_M_x(t)_plot.png"
 
-       error vs time and circuit size (cell 13)- "graph_plots/intermediate/The_error_vs_time_and_circuit_size_plot.png"
+error vs time and circuit size (cell 13)- "graph_plots/intermediate/The_error_vs_time_and_circuit_size_plot.png"
 
 ## 4. Key Findings
 
