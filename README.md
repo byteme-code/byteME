@@ -56,15 +56,15 @@ $$
 
 - **Transverse magnetization**
 
-  $$
-  M_x(t)=\frac{1}{N}\sum_i\langle X_i\rangle
-  $$
+$$
+M_x(t)=\frac{1}{N}\sum_i\langle X_i\rangle
+$$
 
 - **Spin–spin correlations**
 
-  $$
-  \langle Z_0Z_r\rangle
-  $$
+$$
+\langle Z_0Z_r\rangle
+$$
 
   evaluated at $t=2$ for different distances $r$.
 
